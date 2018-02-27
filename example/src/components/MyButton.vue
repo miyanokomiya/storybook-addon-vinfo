@@ -9,6 +9,16 @@ export default {
     return {
       msg: 'Button !'
     }
+  },
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>

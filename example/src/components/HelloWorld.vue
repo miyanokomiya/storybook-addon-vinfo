@@ -93,6 +93,12 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  props: {
+    id: {
+      type: Number,
+      default: 0
+    }
   }
 }
 </script>
