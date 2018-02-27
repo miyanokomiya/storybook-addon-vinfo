@@ -5,6 +5,7 @@
   "repository": "https://github.com/miyanokomiya/storybook-addon-vinfo.git",
   "author": "miyanokomiya",
   "license": "MIT",
+  "private": false,
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
