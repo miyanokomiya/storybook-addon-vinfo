@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-vinfo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/index.js",
   "repository": "https://github.com/miyanokomiya/storybook-addon-vinfo.git",
   "author": "miyanokomiya",
