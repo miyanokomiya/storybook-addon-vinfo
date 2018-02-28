@@ -4,7 +4,6 @@
       <span @click="toggle" v-if="isFolder" class="folder-box">{{ name }} [{{ open ? '-' : '+' }}]</span>
       <ComponentInfo
         v-else
-        :style="{backgroundColor: model.direct ? 'palegreen' : '#eee'}"
         :component="model.component"
         :name="name"
       />
@@ -52,14 +51,17 @@ export default {
 
 <style scoped>
 .item-wrapper {
+  background-color: #eee;
   border: solid 1px #aaa;
-  margin: 5px; border-radius: 2px;
+  margin: 5px;
+  border-radius: 2px;
   list-style-type: none;
 }
 .folder-box {
   padding: 4px;
   font-size: 1.2em;
   cursor: pointer;
+  font-size: .8em;
 }
 .drop-box {
   padding-left: 1em;

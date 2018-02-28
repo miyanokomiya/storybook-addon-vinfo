@@ -2,17 +2,17 @@
   <div class="file-box">
     <dl class="info-item" v-if="name">
       <dt class="info-title"><strong>Name</strong></dt>
-      <dd><a href="#" @click.prevent="linkTo">{{name}}</a></dd>
+      <dd><a href="#" @click.prevent="linkTo">{{name}}</a> <span v-if="!detail" class="open-button" @click="open = !open">[{{ open ? '-' : '+' }}]</span></dd>
     </dl>
-    <dl class="info-item">
+    <dl class="info-item" v-if="detail || open">
       <dt class="info-title"><strong>Import</strong></dt>
       <dd><code class="copy" @click="execCopy(importStr)">{{importStr}}</code></dd>
     </dl>
-    <dl class="info-item" v-if="detail">
+    <dl class="info-item" v-if="detail || open">
       <dt class="info-title"><strong>Example</strong></dt>
       <dd><code class="copy" @click="execCopy(example)">{{example}}</code></dd>
     </dl>
-    <dl class="info-item">
+    <dl class="info-item" v-if="detail || open">
       <dt class="info-title"><strong>Props</strong></dt>
       <dd>
         <table class="props-table">
@@ -45,6 +45,9 @@ import { linkTo } from '@storybook/addon-links'
 import { configure } from './index'
 
 export default {
+  data: () => ({
+    open: false
+  }),
   props: {
     component: {
       type: Object,
@@ -119,12 +122,19 @@ export default {
 
 <style scoped>
 .file-box {
-  padding: 4px;
+  background-color: #fff;
+  padding: 2px;
   border-radius: 2px;
+}
+dt {
+  font-size: .8em;
+}
+.open-button {
+  cursor: pointer;
 }
 .info-item {
   display: flex;
-  margin: 4px 2px;
+  margin: 2px 2px;
 }
 .info-title {
   margin-right: 6px;
@@ -136,21 +146,34 @@ export default {
 tr:nth-child(even){
   background:#F2F2F2;
 }
-th{
+th {
   background:#222222;
   color:white;
 }
-th:nth-child(odd){
+th:nth-child(odd) {
   background:#444444;
 }
-th,td{
+th,td {
   padding: 0 10px;
+  font-size: .8em;
 }
 .copy {
   cursor: pointer;
 }
 .copy:active {
   opacity: 0.7;
+}
+code {
+  padding: 0 6px;
+  background-color: #f5f5f5;
+  color: #bd4147;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  display: inline-block;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  font-size: 85%;
+  font-weight: 900;
+  font-family: monospace,monospace;
 }
 </style>
 

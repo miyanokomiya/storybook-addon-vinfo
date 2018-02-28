@@ -3,6 +3,7 @@
 ![Demo](https://github.com/miyanokomiya/storybook-addon-vinfo/blob/master/assets/demo.gif)
 
 .storybook/config.js
+
 ```
 import { configure } from '@storybook/vue'
 import { storiesOf } from '@storybook/vue'
@@ -10,6 +11,9 @@ import vinfo, { configure as vinfoConfigure } from 'storybook-addon-vinfo'
 
 vinfoConfigure.root = 'src/components'
 vinfoConfigure.name = 'vinfo'
+vinfoConfigure.alias = {
+  '@': 'src'
+}
 const reqVue = require.context('../src/components', true, /\.vue$/)
 const addStories = () => {
   reqVue.keys().forEach(filename => {
@@ -20,5 +24,4 @@ const addStories = () => {
   })
 }
 configure(addStories, module)
-
 ```
