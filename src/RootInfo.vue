@@ -73,7 +73,6 @@ export default {
             component: child
           }
         }
-        this.searchComponents({ components, target: child, direct: false })
       }
     }
   }

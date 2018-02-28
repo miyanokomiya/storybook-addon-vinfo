@@ -136,14 +136,14 @@ export default {
 tr:nth-child(even){
   background:#F2F2F2;
 }
-th{
+th {
   background:#222222;
   color:white;
 }
-th:nth-child(odd){
+th:nth-child(odd) {
   background:#444444;
 }
-th,td{
+th,td {
   padding: 0 10px;
 }
 .copy {
@@ -151,6 +151,18 @@ th,td{
 }
 .copy:active {
   opacity: 0.7;
+}
+code {
+  padding: 0 6px;
+  background-color: #f5f5f5;
+  color: #bd4147;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  display: inline-block;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  font-size: 85%;
+  font-weight: 900;
+  font-family: monospace,monospace;
 }
 </style>
 
