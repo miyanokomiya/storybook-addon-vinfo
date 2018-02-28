@@ -7037,7 +7037,9 @@ stdout-stream@^1.4.0:
     readable-stream "^2.0.1"
 
 "storybook-addon-vinfo@file:..":
-  version "0.0.1"
+  version "0.0.2"
+  dependencies:
+    "@storybook/addon-links" "^3.3.14"
 
 stream-browserify@^2.0.1:
   version "2.0.1"
