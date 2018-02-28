@@ -1,5 +1,4 @@
-import { configure } from '@storybook/vue'
-import { storiesOf } from '@storybook/vue'
+import { configure, storiesOf } from '@storybook/vue'
 import vinfo, { configure as vinfoConfigure } from 'storybook-addon-vinfo'
 
 vinfoConfigure.root = 'src/components'
