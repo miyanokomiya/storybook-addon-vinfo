@@ -2,17 +2,17 @@
   <div class="file-box">
     <dl class="info-item" v-if="name">
       <dt class="info-title"><strong>Name</strong></dt>
-      <dd><a href="#" @click.prevent="linkTo">{{name}}</a></dd>
+      <dd><a href="#" @click.prevent="linkTo">{{name}}</a> <span v-if="!detail" class="open-button" @click="open = !open">[{{ open ? '-' : '+' }}]</span></dd>
     </dl>
-    <dl class="info-item">
+    <dl class="info-item" v-if="detail || open">
       <dt class="info-title"><strong>Import</strong></dt>
       <dd><code class="copy" @click="execCopy(importStr)">{{importStr}}</code></dd>
     </dl>
-    <dl class="info-item" v-if="detail">
+    <dl class="info-item" v-if="detail || open">
       <dt class="info-title"><strong>Example</strong></dt>
       <dd><code class="copy" @click="execCopy(example)">{{example}}</code></dd>
     </dl>
-    <dl class="info-item">
+    <dl class="info-item" v-if="detail || open">
       <dt class="info-title"><strong>Props</strong></dt>
       <dd>
         <table class="props-table">
@@ -45,6 +45,9 @@ import { linkTo } from '@storybook/addon-links'
 import { configure } from './index'
 
 export default {
+  data: () => ({
+    open: false
+  }),
   props: {
     component: {
       type: Object,
@@ -119,12 +122,19 @@ export default {
 
 <style scoped>
 .file-box {
-  padding: 4px;
+  background-color: #fff;
+  padding: 2px;
   border-radius: 2px;
+}
+dt {
+  font-size: .8em;
+}
+.open-button {
+  cursor: pointer;
 }
 .info-item {
   display: flex;
-  margin: 4px 2px;
+  margin: 2px 2px;
 }
 .info-title {
   margin-right: 6px;
@@ -145,6 +155,7 @@ th:nth-child(odd) {
 }
 th,td {
   padding: 0 10px;
+  font-size: .8em;
 }
 .copy {
   cursor: pointer;
